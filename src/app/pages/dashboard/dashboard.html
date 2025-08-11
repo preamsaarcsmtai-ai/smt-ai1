@@ -1,0 +1,31 @@
+<div class="container mt-4">
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <h2 class="card-title text-primary mb-3">Dashboard</h2>
+      <p class="lead">
+        Welcome  <strong>{{ auth.getCurrentUser()?.userName }}</strong>
+        <span class="badge bg-info ms-2">
+          Role: {{ auth.getCurrentUser()?.role }}
+        </span>
+      </p>
+
+      <nav class="mb-3">
+        <a routerLink="/admin" 
+           *ngIf="auth.getCurrentUser()?.role === 'admin'" 
+           class="btn btn-outline-primary me-2">
+          Admin Page
+        </a>
+
+        <a routerLink="/user" 
+           *ngIf="auth.getCurrentUser()?.role === 'user'" 
+           class="btn btn-outline-success me-2">
+          Home
+        </a>
+      </nav>
+
+      <button (click)="auth.logout()" class="btn btn-danger">
+        Logout
+      </button>
+    </div>
+  </div>
+</div>

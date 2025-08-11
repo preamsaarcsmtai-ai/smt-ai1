@@ -1,0 +1,41 @@
+<div class="container mt-5">
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <h2 class="card-title text-center mb-4 text-primary">Register Page</h2>
+
+      <!-- Username -->
+      <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input type="text" [(ngModel)]="userName" class="form-control" placeholder="Enter username">
+      </div>
+
+      <!-- Password -->
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input [(ngModel)]="password" type="password" class="form-control" placeholder="Enter password">
+      </div>
+
+      <!-- Role Selection -->
+      <div class="mb-3">
+        <label class="form-label">Select Role</label>
+        <select [(ngModel)]="role" class="form-select">
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+        </select>
+      </div>
+
+      <!-- Register Button -->
+      <button (click)="onRegister()" class="btn btn-primary w-100">Register</button>
+
+      <!-- Messages -->
+      <div class="mt-3">
+        <p *ngIf="error" class="text-danger">{{ error }}</p>
+      </div>
+
+      <!-- Login Link -->
+      <div class="text-center mt-3">
+        <a routerLink="./login" class="text-decoration-none">Already have an account? Login</a>
+      </div>
+    </div>
+  </div>
+</div>
