@@ -1,28 +1,27 @@
-<div class="container mt-5">
-  <div class="card shadow-sm" style="max-width: 400px; margin: auto;">
+<div class="container ">
+  <div class="card" >
     <div class="card-body">
-      <h2 class="card-title text-center text-primary mb-4">Login</h2>
-<h1>hello</h1>
+      <h2 class="card-title ">Login</h2>
 
-      <div class="mb-3">
+      <div >
         <label class="form-label">Username</label>
         <input type="text" [(ngModel)]="userName" placeholder="Enter username" class="form-control">
       </div>
 
-      <div class="mb-3">
+      <div >
         <label class="form-label">Password</label>
         <input type="password" [(ngModel)]="password" placeholder="Enter password" class="form-control">
       </div>
 
-      <button (click)="onLogin()" class="btn btn-primary w-100">Login</button>
-
-
-    
-        <div class="mt-3">
+<div class="btn">
+        <button (click)="onLogin()" class=" btn-primary ">Login</button>
+</div>
+  
+        <div >
         <p *ngIf="error" class="text-danger">{{ error }}</p>
       </div>
 
-      <div class="text-center mt-3">
+      <div >
         <a routerLink="/register" class="text-decoration-none">Don't have an account? Register</a>
       </div>
     </div>
