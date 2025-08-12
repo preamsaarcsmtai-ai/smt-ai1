@@ -1,1 +1,11 @@
-<p>admin works!</p>
+<h2>Admin - Upload Files</h2>
+<input type="file" (change)="onFileSelected($event)" />
+
+<div class="card-container">
+  <div class="file-card" *ngFor="let file of uploadedFiles">
+    <h4>{{ file.name }}</h4>
+    <img *ngIf="file.url.startsWith('data:image')" [src]="file.url" alt="Preview" />
+    <p *ngIf="!file.url.startsWith('data:image')">Preview not available</p>
+    <button (click)="viewFile(file.url)">View</button>
+  </div>
+</div>

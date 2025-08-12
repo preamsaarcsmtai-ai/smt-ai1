@@ -1,0 +1,17 @@
+:host-context(.light-theme) {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+}
+
+:host-context(.dark-theme) {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+}
+
+:host {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  display: block;
+  min-height: 100vh; 
+  padding: 20px;
+}
