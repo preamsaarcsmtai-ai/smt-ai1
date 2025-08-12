@@ -1,2 +1,72 @@
-<p>home works!</p>
-HEllo GUys im home
+<!-- Particle Background -->
+<div id="particles-js"></div>
+
+<!-- Main Content -->
+<div class="container">
+
+  <!-- Inline AI Brain Neural Network SVG -->
+  <svg class="ai-brain" width="200" height="200" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <!-- Glow Gradient -->
+      <radialGradient id="brainGlow" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#00f0ff" stop-opacity="1"/>
+        <stop offset="100%" stop-color="#001f33" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+
+    <!-- Glow background -->
+    <circle cx="250" cy="250" r="240" fill="url(#brainGlow)" />
+
+    <!-- Brain outline -->
+    <path class="float" d="M150 150 Q120 200 150 250 Q120 300 150 350 Q200 400 250 350 Q300 400 350 350 Q380 300 350 250 Q380 200 350 150 Q300 100 250 150 Q200 100 150 150 Z"
+          stroke="#00f0ff" stroke-width="4" fill="none"/>
+
+    <!-- Neural links -->
+    <g class="pulse-links" stroke="#7ef0ff" stroke-width="2" stroke-linecap="round">
+      <line x1="150" y1="150" x2="250" y2="150"/>
+      <line x1="250" y1="150" x2="350" y2="150"/>
+      <line x1="150" y1="250" x2="250" y2="250"/>
+      <line x1="250" y1="250" x2="350" y2="250"/>
+      <line x1="150" y1="350" x2="250" y2="350"/>
+      <line x1="250" y1="350" x2="350" y2="350"/>
+      <line x1="250" y1="150" x2="250" y2="350"/>
+    </g>
+
+    <!-- Nodes -->
+    <g class="glow-nodes" fill="#00f0ff">
+      <circle cx="150" cy="150" r="6"/>
+      <circle cx="250" cy="150" r="6"/>
+      <circle cx="350" cy="150" r="6"/>
+      <circle cx="150" cy="250" r="6"/>
+      <circle cx="250" cy="250" r="6"/>
+      <circle cx="350" cy="250" r="6"/>
+      <circle cx="150" cy="350" r="6"/>
+      <circle cx="250" cy="350" r="6"/>
+      <circle cx="350" cy="350" r="6"/>
+    </g>
+  </svg>
+
+  <h1>Smt AI</h1>
+  <p class="tagline">Experience the future of intelligence, today.</p>
+
+  <p class="description">
+    Smt AI is your personal gateway to advanced artificial intelligence solutions. 
+    From smart automation to intelligent data analysis, our technology adapts, learns, 
+    and empowers you in ways you've never imagined.
+  </p>
+
+  <p class="description">
+    Whether you're here to explore AI-driven insights, automate workflows, or simply 
+    chat with the smartest assistant, Smt AI makes innovation accessible to everyone.
+  </p>
+
+  <p class="description">
+    🌐 Powered by real-time learning, Smt AI evolves with you — becoming smarter and 
+    more helpful every single day.
+  </p>
+
+  <div class="button-group">
+    <button class="btn primary" (click)="login()">Login</button>
+    <button class="btn secondary" (click)="loginAsGuest()">Login as Guest</button>
+  </div>
+</div>
