@@ -7,9 +7,11 @@ import { Auth } from './services/auth';
 import { roleGuard } from './guards/role-guard';
 import { authGuard } from './guards/auth-guard';
 import { Users } from './pages/users/users';
+import { Home } from './pages/home/home';
 
 export const routes: Routes = [
     {path:'', redirectTo:'', pathMatch:'full'},
+    {path:'',component:Home},
     {path:'login', component:Login},
     {path:'register', component: Register},
     {path:'dashboard', component:Dashboard},
