@@ -1,19 +1,37 @@
-<button (click)="toggleTheme()">
-  {{ themeService.isDark() ? 'Switch to Light Mode' : 'Switch to Dark Mode' }}
-</button>
+<div class="dashboard-container" [class.dark]="themeService.isDark()">
 
-<!-- Dashboard Info -->
-<div class="dashboard-card">
-  <h2>Dashboard Content</h2>
-  <p>This is your dashboard in {{ themeService.isDark() ? 'dark' : 'light' }} mode.</p>
-</div>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2 class="logo">MyApp</h2>
+    <nav>
+      <ul>
+        <li><a routerLink="/dashboard" routerLinkActive="active">Dashboard</a></li>
+        <li><a routerLink="/files" routerLinkActive="active">Files</a></li>
+        <li><a routerLink="/settings" routerLinkActive="active">Settings</a></li>
+      </ul>
+    </nav>
+  </aside>
 
-<!-- Uploaded Files -->
-<div class="card-container">
-  <div class="file-card" *ngFor="let file of files">
-    <h4>{{ file.name }}</h4>
-    <img *ngIf="file.url.startsWith('data:image')" [src]="file.url" alt="Preview" />
-    <p *ngIf="!file.url.startsWith('data:image')">Preview not available</p>
-    <button (click)="viewFile(file.url)">View</button>
-  </div>
+  <!-- Main Content -->
+  <main class="main-content">
+    <button class="theme-toggle" (click)="toggleTheme()">
+      {{ themeService.isDark() ? 'Switch to Light Mode' : 'Switch to Dark Mode' }}
+    </button>
+
+    <!-- Dashboard Info -->
+    <div class="dashboard-card">
+      <h2>Dashboard Content</h2>
+      <p>This is your dashboard in {{ themeService.isDark() ? 'dark' : 'light' }} mode.</p>
+    </div>
+
+    <!-- Uploaded Files -->
+    <div class="card-container">
+      <div class="file-card" *ngFor="let file of files">
+        <h4>{{ file.name }}</h4>
+        <img *ngIf="file.url.startsWith('data:image')" [src]="file.url" alt="Preview" />
+        <p *ngIf="!file.url.startsWith('data:image')">Preview not available</p>
+        <button (click)="viewFile(file.url)">View</button>
+      </div>
+    </div>
+  </main>
 </div>
