@@ -6,7 +6,6 @@
   font-family: 'Segoe UI', sans-serif;
   background-color: #f4f6f8;
   color: #333;
-  transition: background 0.3s, color 0.3s;
 
   &.dark {
     background-color: #121212;

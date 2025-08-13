@@ -4,40 +4,31 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class Theme {
- 
+
   private isDarkMode = false;
 
-  
   constructor() {
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      this.isDarkMode = savedTheme === 'dark';
-    } else {
-      this.isDarkMode = false;
-    }
+    this.isDarkMode = savedTheme === 'dark';
     this.applyTheme();
   }
 
-
-  toggleTheme(){
+  toggleTheme() {
     this.isDarkMode = !this.isDarkMode;
-    localStorage.setItem('theme',this.isDarkMode ? 'dark':'light');
+    localStorage.setItem('theme', this.isDarkMode ? 'dark' : 'light');
     this.applyTheme();
   }
 
-  private applyTheme(){
-    if(this.isDarkMode){
-      document.body.classList.add('dark-theme');
-      document.body.classList.remove('light-theme');
-    }
-    else{
-      document.body.classList.add('light-theme');
-      document.body.classList.remove('dark-theme');
+  private applyTheme() {
+    const root = document.documentElement; // <html>
+    if (this.isDarkMode) {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
     }
   }
 
-  isDark(){
+  isDark() {
     return this.isDarkMode;
   }
-  
 }
