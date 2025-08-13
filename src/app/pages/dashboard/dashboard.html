@@ -5,23 +5,27 @@
     <h2 class="logo">MyApp</h2>
     <nav>
       <ul>
-        <li><a routerLink="/dashboard" routerLinkActive="active">Dashboard</a></li>
-        <li><a routerLink="/files" routerLinkActive="active">Files</a></li>
-        <li><a routerLink="/settings" routerLinkActive="active">Settings</a></li>
+        <li><a routerLink="/dashboard" routerLinkActive="active"><span class="material-icons">dashboard</span> Dashboard</a></li>
+        <li><a routerLink="/files" routerLinkActive="active"><span class="material-icons">folder</span> Files</a></li>
+        <li><a routerLink="/settings" routerLinkActive="active"><span class="material-icons">settings</span> Settings</a></li>
       </ul>
     </nav>
   </aside>
 
   <!-- Main Content -->
   <main class="main-content">
+
+    <!-- Theme Toggle Button -->
     <button class="theme-toggle" (click)="toggleTheme()">
-      {{ themeService.isDark() ? 'Switch to Light Mode' : 'Switch to Dark Mode' }}
+      <span class="material-icons">
+        {{ themeService.isDark() ? 'light_mode' : 'dark_mode' }}
+      </span>
     </button>
 
     <!-- Dashboard Info -->
     <div class="dashboard-card">
-      <h2>Dashboard Content</h2>
-      <p>This is your dashboard in {{ themeService.isDark() ? 'dark' : 'light' }} mode.</p>
+      <h2>Welcome Back</h2>
+      <p>You are currently in <strong>{{ themeService.isDark() ? 'Dark' : 'Light' }}</strong> mode.</p>
     </div>
 
     <!-- Uploaded Files -->
