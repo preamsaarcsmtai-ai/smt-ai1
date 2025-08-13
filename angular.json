@@ -26,6 +26,9 @@
             ],
             "styles": [
               "src/styles.css"
+            ],
+            "scripts": [
+              "node_modules/particles.js/particles.js"
             ]
           },
           "configurations": {
@@ -88,5 +91,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "7c907599-b5e5-48a3-9d5b-b4f483d43ba0"
   }
 }

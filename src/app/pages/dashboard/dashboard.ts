@@ -1,15 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Auth } from '../../services/auth';
 import { CommonModule } from '@angular/common';
+import { FileSevice } from '../../services/file';
+import { Theme } from '../../services/theme';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css'
-})
-export class Dashboard {
+})    
+export class Dashboard  {
 
-  constructor(public auth:Auth) {}
+  constructor(public themeService: Theme, private fileService: FileSevice) {}
+
+  toggleTheme(){
+    this.themeService.toggleTheme();
+  }
+
+  get files(){
+    return this.fileService.getFiles();
+  }
+
+  viewFile(url: string) {
+  window.open(url, '_blank');
+}
 
 }

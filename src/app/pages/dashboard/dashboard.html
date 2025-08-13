@@ -1,31 +1,37 @@
-<div class="container mt-4">
-  <div class="card shadow-sm">
-    <div class="card-body">
-      <h2 class="card-title text-primary mb-3">Dashboard</h2>
-      <p class="lead">
-        Welcome  <strong>{{ auth.getCurrentUser()?.userName }}</strong>
-        <span class="badge bg-info ms-2">
-          Role: {{ auth.getCurrentUser()?.role }}
-        </span>
-      </p>
+<div class="dashboard-container" [class.dark]="themeService.isDark()">
 
-      <nav class="mb-3">
-        <a routerLink="/admin" 
-           *ngIf="auth.getCurrentUser()?.role === 'admin'" 
-           class="btn btn-outline-primary me-2">
-          Admin Page
-        </a>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2 class="logo">MyApp</h2>
+    <nav>
+      <ul>
+        <li><a routerLink="/dashboard" routerLinkActive="active">Dashboard</a></li>
+        <li><a routerLink="/files" routerLinkActive="active">Files</a></li>
+        <li><a routerLink="/settings" routerLinkActive="active">Settings</a></li>
+      </ul>
+    </nav>
+  </aside>
 
-        <a routerLink="/user" 
-           *ngIf="auth.getCurrentUser()?.role === 'user'" 
-           class="btn btn-outline-success me-2">
-          Home
-        </a>
-      </nav>
+  <!-- Main Content -->
+  <main class="main-content">
+    <button class="theme-toggle" (click)="toggleTheme()">
+      {{ themeService.isDark() ? 'Switch to Light Mode' : 'Switch to Dark Mode' }}
+    </button>
 
-      <button (click)="auth.logout()" class="btn btn-danger">
-        Logout
-      </button>
+    <!-- Dashboard Info -->
+    <div class="dashboard-card">
+      <h2>Dashboard Content</h2>
+      <p>This is your dashboard in {{ themeService.isDark() ? 'dark' : 'light' }} mode.</p>
     </div>
-  </div>
+
+    <!-- Uploaded Files -->
+    <div class="card-container">
+      <div class="file-card" *ngFor="let file of files">
+        <h4>{{ file.name }}</h4>
+        <img *ngIf="file.url.startsWith('data:image')" [src]="file.url" alt="Preview" />
+        <p *ngIf="!file.url.startsWith('data:image')">Preview not available</p>
+        <button (click)="viewFile(file.url)">View</button>
+      </div>
+    </div>
+  </main>
 </div>
