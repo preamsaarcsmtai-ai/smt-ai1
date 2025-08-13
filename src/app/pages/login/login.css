@@ -19,7 +19,7 @@
   border-radius: 16px;
   box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.08); /* Subtle shadow */
   background: transparent;
-  padding: 80px ;
+  padding: 80px 50px;
 }
 
 .card-title {
@@ -37,9 +37,9 @@
 .form-control {
   border-radius: 12px;
   border: 1px solid #ddd;
-  padding: 12px 14px;
+  padding: 12px 55px;
   font-size: 15px;
-  margin: 10px;
+ margin: 10px 0;
   background-color: #f9f9f9;
   transition: all 0.3s ease;
 }
@@ -63,7 +63,7 @@
   border-radius: 12px;
   background: linear-gradient(90deg, #667eea, #764ba2);
   border: none;
-  padding: 12px;
+  padding: 12px 20px;
   font-size: 15px;
   font-weight: 500;
   transition:  0.3s ease, transform 0.2s ease;
@@ -74,7 +74,9 @@
   transform: translateY(-1px);
 }
     
-
-.text-danger {
-  font-size: 0.9rem;
+.register-text{
+position: relative ;
+ top: 50PX ;
+ left: 30px;
 }
+
