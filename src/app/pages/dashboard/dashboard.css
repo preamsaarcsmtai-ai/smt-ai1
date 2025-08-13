@@ -1,37 +1,24 @@
-:host-context(.light-theme) {
-  --bg-color: #ffffff;
-  --text-color: #000000;
-}
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
-:host-context(.dark-theme) {
-  --bg-color: #121212;
-  --text-color: #ffffff;
-}
-
-:host {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  display: block;
-  min-height: 100vh; 
-  padding: 20px;
-}.dashboard-container {
+.dashboard-container {
   display: flex;
   min-height: 100vh;
-  background-color: #f4f4f4;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f6f8;
   color: #333;
   transition: background 0.3s, color 0.3s;
 
   &.dark {
-    background-color: #1e1e1e;
+    background-color: #121212;
     color: #ddd;
 
     .sidebar {
-      background-color: #121212;
+      background-color: #1c1c1c;
     }
 
     .dashboard-card,
     .file-card {
-      background-color: #2a2a2a;
+      background-color: #1e1e1e;
       color: #fff;
     }
 
@@ -42,18 +29,25 @@
     a.active {
       color: #4da3ff;
     }
+
+    .theme-toggle {
+      background: #333;
+      color: #fff;
+    }
   }
 }
 
+/* Sidebar */
 .sidebar {
-  width: 220px;
+  width: 240px;
   background: #fff;
-  padding: 1rem;
+  padding: 1.5rem;
   border-right: 1px solid #ddd;
 
   .logo {
     font-size: 1.5rem;
     margin-bottom: 2rem;
+    font-weight: bold;
     text-align: center;
   }
 
@@ -65,37 +59,67 @@
       margin-bottom: 1rem;
 
       a {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
         text-decoration: none;
         color: #333;
         font-weight: 500;
+        padding: 0.5rem;
+        border-radius: 6px;
+        transition: background 0.2s;
+
+        &:hover {
+          background: rgba(0, 0, 0, 0.05);
+        }
 
         &.active {
-          color: #007bff;
+          background: #007bff;
+          color: #fff;
         }
       }
     }
   }
 }
 
+/* Main content */
 .main-content {
   flex: 1;
   padding: 2rem;
+  position: relative;
 }
 
+/* Theme toggle button */
 .theme-toggle {
-  margin-bottom: 1rem;
-  padding: 0.5rem 1rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  border: none;
+  background: #eee;
+  padding: 0.6rem;
+  border-radius: 50%;
   cursor: pointer;
+  transition: background 0.3s;
+
+  &:hover {
+    background: #ddd;
+  }
+
+  .material-icons {
+    font-size: 24px;
+  }
 }
 
+/* Dashboard cards */
 .dashboard-card {
   background: white;
   padding: 1.5rem;
   border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   margin-bottom: 2rem;
 }
 
+/* File grid */
 .card-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -106,8 +130,13 @@
   background: white;
   padding: 1rem;
   border-radius: 8px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
   text-align: center;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: translateY(-3px);
+  }
 
   img {
     max-width: 100%;
@@ -118,8 +147,15 @@
   }
 
   button {
-    padding: 0.3rem 0.7rem;
+    padding: 0.4rem 0.8rem;
+    border: none;
+    background: #007bff;
+    color: white;
+    border-radius: 4px;
     cursor: pointer;
+
+    &:hover {
+      background: #0056b3;
+    }
   }
 }
-
