@@ -15,18 +15,24 @@
 .card {
   width: 100%;
   max-width: 400px; /* Restrict card width */
-  border: 1px solid aliceblue;
+  border: 2px solid cyan;
   border-radius: 16px;
-  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.08); /* Subtle shadow */
   background: transparent;
-  padding: 80px 50px;
+  padding: 65px 50px;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.08);
+  animation: borderGlow 3s infinite ease-in-out;
 }
 
 .card-title {
   font-weight: 600;
   text-align: center;
+  margin-bottom: 10px;
 }
-
+small{
+  position: relative;
+top: -10px;
+color: red;
+}
 
 .form-label {
   font-weight: 500;
@@ -39,7 +45,7 @@
   border: 1px solid #ddd;
   padding: 12px 55px;
   font-size: 15px;
- margin: 10px 0;
+ margin: 15px 0;
   background-color: #f9f9f9;
   transition: all 0.3s ease;
 }
@@ -50,7 +56,7 @@
 }
 
 .form-control:focus {
-  border-color: #5a67d8; /* AI-style blue */
+  border-color: #5a67d8; 
   background-color: #fff;
   box-shadow: 0 0 0 4px rgba(90, 103, 216, 0.15);
   outline: none;
@@ -63,8 +69,10 @@
   border-radius: 12px;
   background: linear-gradient(90deg, #667eea, #764ba2);
   border: none;
-  padding: 12px 20px;
+  padding: 12px 50px;
   font-size: 15px;
+  margin: 15px 0 5px  0;
+  
   font-weight: 500;
   transition:  0.3s ease, transform 0.2s ease;
 }
@@ -76,7 +84,25 @@
     
 .register-text{
 position: relative ;
- top: 50PX ;
- left: 30px;
+ top: 30px;
+ left: 35px;
+ font-size: 15px;
 }
 
+@keyframes borderGlow {
+  0% {
+    border-radius: 16px;
+    box-shadow: 0 0 2px cyan, 0 0 5px cyan;
+    border-color: cyan;
+  }
+  50% {
+    border-radius: 30px;
+    box-shadow: 0 0 2px deepskyblue, 0 0 5px cyan;
+    border-color: deepskyblue;
+  }
+  100% {
+    border-radius: 16px;
+    box-shadow: 0 0 5px cyan, 0 0 2px cyan;
+    border-color: cyan;
+  }
+}
