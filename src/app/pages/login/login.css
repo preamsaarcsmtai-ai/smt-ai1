@@ -1,20 +1,39 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
 }
+
+/* Container */
 .container {
-  min-height: 100vh; /* Full screen height */
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #eef2f3, #dfe9f3); /* Soft gradient */
+  background-color: #fff;
+  flex-direction: column; /* Stack logo & card on smaller screens */
+  position: relative;
 }
 
+/* Logo */
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+.logo img {
+  width: 150px;
+  height: auto;
+  max-width: 100%;
+}
+
+/* Card */
 .card {
   width: 100%;
-  max-width: 400px; /* Restrict card width */
+  max-width: 400px;
   border: 2px solid cyan;
   border-radius: 16px;
   background: transparent;
@@ -28,10 +47,18 @@
   text-align: center;
   margin-bottom: 10px;
 }
-small{
+
+/* Form */
+small {
   position: relative;
-top: -10px;
-color: red;
+  top: -10px;
+  color: red;
+}
+.error{
+    position: relative;
+  top: -78px;
+  color: red;
+  font-size: 15px;
 }
 
 .form-label {
@@ -43,11 +70,12 @@ color: red;
 .form-control {
   border-radius: 12px;
   border: 1px solid #ddd;
-  padding: 12px 55px;
+  padding: 12px 15px;
   font-size: 15px;
- margin: 15px 0;
+  margin: 15px 0;
   background-color: #f9f9f9;
   transition: all 0.3s ease;
+  width: 100%;
 }
 
 .form-control::placeholder {
@@ -56,13 +84,15 @@ color: red;
 }
 
 .form-control:focus {
-  border-color: #5a67d8; 
+  border-color: #5a67d8;
   background-color: #fff;
   box-shadow: 0 0 0 4px rgba(90, 103, 216, 0.15);
   outline: none;
 }
-.btn{
-    text-align: center;
+
+/* Button */
+.btn {
+  text-align: center;
 }
 
 .btn-primary {
@@ -71,38 +101,75 @@ color: red;
   border: none;
   padding: 12px 50px;
   font-size: 15px;
-  margin: 15px 0 5px  0;
-  
+  margin: 15px 0 5px 0;
   font-weight: 500;
-  transition:  0.3s ease, transform 0.2s ease;
+  transition: 0.3s ease, transform 0.2s ease;
+  color: #fff;
 }
 
 .btn-primary:hover {
   background: linear-gradient(90deg, #5a67d8, #6b46c1);
   transform: translateY(-1px);
 }
-    
-.register-text{
-position: relative ;
- top: 30px;
- left: 35px;
- font-size: 15px;
+
+/* Register text */
+.register-text {
+  position: relative;
+  top: 30px;
+  font-size: 15px;
+  text-align: center;
 }
 
+/* Border Glow Animation */
 @keyframes borderGlow {
   0% {
     border-radius: 16px;
-    box-shadow: 0 0 2px cyan, 0 0 5px cyan;
-    border-color: cyan;
+    box-shadow: 0 0 2px rgb(158, 161, 161), 0 0 0 rgb(125, 126, 126);
+    border-color: rgb(94, 104, 104);
   }
   50% {
     border-radius: 30px;
-    box-shadow: 0 0 2px deepskyblue, 0 0 5px cyan;
-    border-color: deepskyblue;
+    box-shadow: 0 0 2px rgb(129, 130, 131), 0 0 0 rgb(130, 133, 133);
+    border-color: rgb(109, 113, 114);
   }
   100% {
     border-radius: 16px;
-    box-shadow: 0 0 5px cyan, 0 0 2px cyan;
-    border-color: cyan;
+    box-shadow: 0 0 5px rgb(159, 161, 161), 0 0 0 rgb(128, 129, 129);
+    border-color: rgb(154, 158, 158);
+  }
+}
+
+@media (max-width: 768px) {
+  .logo {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-bottom: 15px;
+  }
+  .logo img {
+    width: 120px;
+  }
+  .card {
+    padding: 40px 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo img {
+    width: 100px;
+  }
+  .card {
+    padding: 30px 20px;
+  }
+  .btn-primary {
+    padding: 10px 30px;
+    font-size: 14px;
+  }
+  .form-control {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+  .register-text {
+    font-size: 13px;
   }
 }
