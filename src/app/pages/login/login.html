@@ -1,21 +1,50 @@
-<div class="container">
+<div class="container" [ngClass]="isDarkMode ? 'dark-mode' : 'light-mode'">
+<div class="theme-toggle">
+  <button (click)="toggleTheme()" class="icon-btn">
+    <ng-container *ngIf="isDarkMode; else moonIcon">
+      <!-- 🌞 New Sun Icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#FDB813" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="5"/>
+        <g stroke="#FDB813" stroke-width="2">
+          <line x1="12" y1="1" x2="12" y2="4"/>
+          <line x1="12" y1="20" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/>
+          <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="4" y2="12"/>
+          <line x1="20" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/>
+          <line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/>
+        </g>
+      </svg>
+    </ng-container>
+    <ng-template #moonIcon>
+      <!-- 🌙 Moon -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#000000" viewBox="0 0 24 24">
+        <path d="M21 12.79A9 9 0 0 1 11.21 3 7 7 0 1 0 21 12.79z"/>
+      </svg>
+    </ng-template>
+  </button>
+</div>
+
+
 <div class="logo">
   <img src="assets/logo.png" alt="logo">
+
 </div>
 
   <div class="card" >
     <div class="card-body">
-      <h2 class="card-title ">Login.</h2>
+      <h2 class="card-title ">Login</h2>
 
-      <div >
+      <div class="input-box">
         <label class="form-label">Username</label>
-        <input type="text" [(ngModel)]="userName" placeholder="Enter username" class="form-control">
+        <input type="text" [(ngModel)]="userName" placeholder="user@gmail.com" class="form-control">
          <small class="text-danger" *ngIf="submitted && !userName">Username is required</small>
       </div>
 
-      <div >
+      <div class="input-box">
         <label class="form-label">Password</label>
-        <input type="password" [(ngModel)]="password" placeholder="Enter password" class="form-control">
+        <input type="password" [(ngModel)]="password" placeholder="user@123" class="form-control">
                 <small class="text-danger" *ngIf="submitted && !password">Password is required</small>
       </div>
 
@@ -26,10 +55,10 @@
         <div class="error">
         <p *ngIf="error" >{{ error }}</p>
       </div>
-
-      <div class="register-text">
-        <a routerLink="/register" class="text-decoration-none">Don't have an account? Register</a>
-      </div>
     </div>
   </div>
 </div>
+
+
+
+

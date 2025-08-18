@@ -32,6 +32,7 @@ export class Home implements OnInit {
  this.router.navigate(['/login']);  }
 
   loginAsGuest() {
-    console.log('Login as Guest clicked');
+    this.router.navigate(['/login']);
+    // console.log('Login as Guest clicked');
   }
 }
