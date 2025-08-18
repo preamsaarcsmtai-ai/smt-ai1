@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { Auth } from '../../services/auth';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule, CommonModule,RouterLink],
+  imports: [FormsModule, CommonModule,RouterModule],
   templateUrl: './login.html',
   styleUrl: './login.css'
 })
@@ -17,6 +16,7 @@ export class Login {
   password = '';
   error = '';
     submitted = false;
+    isDarkMode = true;
 
   constructor(private auth:Auth, private route:Router) {}
 
@@ -36,5 +36,11 @@ export class Login {
       this.error = 'Invalid username or password';
     }
   }     
-
+toggleTheme() {
+  this.isDarkMode = !this.isDarkMode;
+  const container = document.querySelector('.container');
+  if (container) {
+    container.classList.toggle('dark-mode', this.isDarkMode);
+  }
+}
 }
