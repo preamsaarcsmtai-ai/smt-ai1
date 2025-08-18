@@ -8,7 +8,7 @@ export class Auth {
  
   private users = [
     {userName:'admin', password:'admin12345', role:'admin'},
-    {userName:'user', password:'user12345', role:'user'}
+    {userName:'user@gmail.com', password:'user@123', role:'user'}
   ]
   
 
