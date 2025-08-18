@@ -1,17 +1,110 @@
+/* ===== General Layout ===== */
+h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+/* ===== Custom Upload Button ===== */
+input[type="file"] {
+  display: none;
+}
+
+.upload-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #4a90e2, #0056b3);
+  color: white;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.upload-btn:hover {
+  background: linear-gradient(135deg, #0056b3, #003f7f);
+  transform: translateY(-2px);
+}
+
+/* ===== File Card Container ===== */
 .card-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 20px;
 }
+
+/* ===== File Card ===== */
 .file-card {
-  border: 1px solid #ccc;
-  padding: 10px;
-  width: 200px;
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 15px;
+  width: 220px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
+
+.file-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.file-card h4 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+
 .file-card img {
   max-width: 100%;
   height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
-button {
-  margin-top: 5px;
+
+.file-card p {
+  font-size: 0.9rem;
+  color: var(--secondary-text);
+}
+
+.file-card button {
+  background: var(--button-bg);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.file-card button:hover {
+  background: var(--button-hover);
+}
+
+/* ===== Light Mode ===== */
+:root {
+  --text-color: #222;
+  --secondary-text: #555;
+  --card-bg: #ffffff;
+  --button-bg: #4a90e2;
+  --button-hover: #0056b3;
+}
+
+/* ===== Dark Mode ===== */
+.dark {
+  --text-color: #f0f0f0;
+  --secondary-text: #bbb;
+  --card-bg: #1e1e1e;
+  --button-bg: #007bff;
+  --button-hover: #0056b3;
+  background: #121212;
+  color: var(--text-color);
 }

@@ -4,10 +4,11 @@ import { CommonModule } from '@angular/common';
 import { FileSevice } from '../../services/file';
 import { Theme } from '../../services/theme';
 import { FormsModule } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule,RouterModule],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css'
 })    
