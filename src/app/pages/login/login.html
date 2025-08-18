@@ -1,24 +1,30 @@
-<div class="container ">
+<div class="container">
+<div class="logo">
+  <img src="assets/logo.png" alt="logo">
+</div>
+
   <div class="card" >
     <div class="card-body">
-      <h2 class="card-title ">Login</h2>
+      <h2 class="card-title ">Login.</h2>
 
       <div >
         <label class="form-label">Username</label>
         <input type="text" [(ngModel)]="userName" placeholder="Enter username" class="form-control">
+         <small class="text-danger" *ngIf="submitted && !userName">Username is required</small>
       </div>
 
       <div >
         <label class="form-label">Password</label>
         <input type="password" [(ngModel)]="password" placeholder="Enter password" class="form-control">
+                <small class="text-danger" *ngIf="submitted && !password">Password is required</small>
       </div>
 
 <div class="btn">
         <button (click)="onLogin()" class=" btn-primary ">Login</button>
 </div>
   
-        <div >
-        <p *ngIf="error" class="text-danger">{{ error }}</p>
+        <div class="error">
+        <p *ngIf="error" >{{ error }}</p>
       </div>
 
       <div class="register-text">
