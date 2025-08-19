@@ -1,35 +1,27 @@
-import {  Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-declare var particlesJS: any;
+import { Theme } from '../../services/theme';
 
 @Component({
   selector: 'app-home',
-  standalone:true,
-  imports: [],
+  standalone: true,
   templateUrl: './home.html',
-  styleUrl: './home.css'
+  styleUrls: ['./home.css']
 })
-export class Home implements OnInit {
+export class Home {
+  constructor(private router: Router, public theme: Theme) {}
 
+  toggleTheme() {
+    this.theme.toggleTheme();
+  }
 
-  constructor(private router: Router) {}
-  ngOnInit(): void {
-    particlesJS('particles-js', {
-      particles: {
-        number: { value: 80 },
-        size: { value: 3 },
-        move: { speed: 2 },
-        line_linked: {
-          enable: true,
-          color: '#00f0ff'
-        },
-        color: { value: '#00f0ff' }
-      }
-    });
+  get themeIcon() {
+    return this.theme.isDark() ? '☀️' : '🌙';
   }
 
   login() {
- this.router.navigate(['/login']);  }
+    this.router.navigate(['/login']);
+  }
 
   loginAsGuest() {
     console.log('Login as Guest clicked');
