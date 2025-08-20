@@ -24,6 +24,7 @@ export class Home {
   }
 
   loginAsGuest() {
-    console.log('Login as Guest clicked');
+    this.router.navigate(['/login']);
+    // console.log('Login as Guest clicked');
   }
 }
